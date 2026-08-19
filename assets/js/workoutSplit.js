@@ -34,143 +34,6 @@ const globalDailyWarmUp = [
 ];
 
 const workoutData = {
-  "Day 5": {
-    name: "Day 5: Chest & Triceps (Upper Chest Focus)",
-    specificWarmUp: [
-      {
-        exercise: "1. Band Chest Stretch",
-        detail: "1 minute: hold a band behind your back and stretch the chest.",
-      },
-      {
-        exercise: "2. Incline Push-Ups",
-        detail: "2 sets x 15 reps (warm up shoulders and chest).",
-      },
-      {
-        exercise: "3. Band External Rotations",
-        detail: "2 sets x 15 reps/side",
-      },
-    ],
-    mainExercises: [
-      {
-        exercise: "1. Incline Dumbbell Press",
-        detail: "4 sets x 8-12 reps (Upper chest)",
-      },
-      {
-        exercise: "2. Incline Cable Flyes (Low-to-High)",
-        detail: "3 sets x 12-15 reps",
-      },
-      {
-        exercise: "3. Cable Chest Flyes (30° Incline)",
-        detail: "3 sets x 12-15 reps + dropset",
-      },
-      {
-        exercise: "4. Weighted Dips",
-        detail: "3 sets x 8-10 reps (Lower chest/triceps)",
-      },
-      {
-        exercise: "5. Overhead Tricep Extension",
-        detail: "3 sets x 12-15 reps",
-      },
-      {
-        exercise: "6. Rope Pushdowns",
-        detail: "3 sets x 15-20 reps",
-      },
-      {
-        exercise: "Core - Hanging Leg Raises",
-        detail: "3 sets x 12-15 reps",
-      },
-    ],
-  },
-  "Day 6": {
-    name: "Day 6: Back & Biceps (Rear Delts + Thickness)",
-    specificWarmUp: [
-      {
-        exercise: "1. Lat Stretch",
-        detail: "1 minute/side: hang from a pull-up bar or doorframe.",
-      },
-      {
-        exercise: "2. Banded Face Pulls",
-        detail: "2 sets x 20 reps – added for rear delts",
-      },
-      {
-        exercise: "3. Band Rows or Empty-Bar Bent-Over Rows",
-        detail: "2 sets x 12 reps",
-      },
-    ],
-    mainExercises: [
-      {
-        exercise: "1. Wide-Grip Pull-Ups",
-        detail: "4 sets x AMRAP",
-      },
-      {
-        exercise: "2. Deadlift",
-        detail: "4 sets x 5-7 reps (Posterior chain)",
-      },
-      {
-        exercise: "3. Bent-Over Barbell Rows",
-        detail: "4 sets x 8-12 reps",
-      },
-      {
-        exercise: "4. Reverse Grip Lat Pulldowns",
-        detail: "4 sets x 8-12 reps",
-      },
-      {
-        exercise: "5. Face Pulls",
-        detail: "4 sets x 15-20 reps (Rear delts)",
-      },
-      {
-        exercise: "6. Preacher Curl",
-        detail: "4 sets x 8-12 reps",
-      },
-      {
-        exercise: "7. Incline Dumbbell Curls",
-        detail: "3 sets x 10-12 reps",
-      },
-      {
-        exercise: "Core - Bird Dogs",
-        detail: "3 sets x 20s holds/side",
-      },
-    ],
-  },
-  "Day 3": {
-    name: "Day 3: Shoulders (Full Delt Emphasis)",
-    specificWarmUp: [
-      {
-        exercise: "1. Band External Rotations",
-        detail: "2 sets x 15 reps/side",
-      },
-      {
-        exercise: "2. Scapular Push-Ups",
-        detail: "2 sets x 10 reps",
-      },
-    ],
-    mainExercises: [
-      {
-        exercise: "1. Seated Dumbbell Overhead Press",
-        detail: "4 sets x 8-12 reps (Anterior delts)",
-      },
-      {
-        exercise: "2. Arnold Press",
-        detail: "4 sets x 8-12 reps (360° delt activation)",
-      },
-      {
-        exercise: "3. Cable Lateral Raises",
-        detail: "4 sets x 15-20 reps (Side delts)",
-      },
-      {
-        exercise: "4. Front Raises",
-        detail: "3 sets x 12-15 reps (Anterior delt isolation)",
-      },
-      {
-        exercise: "5. Reverse Pec Deck Flyes",
-        detail: "3 sets x 15-20 reps (Rear delts)",
-      },
-      {
-        exercise: "Core - Plank with Shoulder Taps",
-        detail: "3 sets x 45-60 seconds",
-      },
-    ],
-  },
   "Day 1": {
     name: "Day 1: Chest & Triceps (Full Chest + Pump)",
     specificWarmUp: [
@@ -190,34 +53,43 @@ const workoutData = {
     mainExercises: [
       {
         exercise: "1. Flat Barbell Bench Press",
-        detail: "4 sets x 6-8 reps (Mid-chest strength)",
+        detail: "4 sets x 6-8",
+        RIR: "1-2",
+        Rest: "2-3 min",
       },
       {
         exercise: "2. Incline Hex Press",
-        detail: "4 sets x 8-12 reps (Upper chest squeeze)",
+        detail: "3 sets x 8-12",
+        RIR: "1",
+        Rest: "90s",
       },
       {
-        exercise: "3. Cable Flyes (Mid-Chest Height)",
-        detail: "3 sets x 15-20 reps + dropset",
+        exercise: "3. Standing High-to-Low Cable Fly",
+        detail: "2 sets x 12-15 + drop",
+        RIR: "0-1",
+        Rest: "60-75s",
       },
       {
-        exercise: "4. Low-to-High Cable Crossovers",
-        detail: "3 sets x 12-15 reps",
+        exercise: "4. Cable Flyes (Mid-Chest)",
+        detail: "3 sets x 15-20 + drop",
+        RIR: "0-1",
+        Rest: "60-75s",
       },
       {
         exercise: "5. Skull Crushers",
-        detail: "3 sets x 10-12 reps",
+        detail: "3 sets x 10-12",
+        RIR: "1",
+        Rest: "75s",
       },
       {
         exercise: "6. Tricep Pushdowns",
-        detail: "3 sets x 15-20 reps",
-      },
-      {
-        exercise: "Core - Russian Twists",
-        detail: "3 sets x 20 reps/side",
+        detail: "3 sets x 15-20",
+        RIR: "0-1",
+        Rest: "60s",
       },
     ],
   },
+
   "Day 2": {
     name: "Day 2: Back & Biceps (Upper Back + Width)",
     specificWarmUp: [
@@ -236,39 +108,114 @@ const workoutData = {
     ],
     mainExercises: [
       {
-        exercise: "1. Weighted Chin-Ups",
-        detail: "4 sets x 6-8 reps",
+        exercise: "1. Wide-Grip Pull-Ups",
+        detail: "3 sets x AMRAP",
+        RIR: "0",
+        Rest: "2 min",
       },
       {
-        exercise: "2. Single-Arm Dumbbell Rows",
-        detail: "4 sets x 8-12 reps",
+        exercise: "2. Chest-Supported Machine Row",
+        detail: "4 sets x 8-12",
+        RIR: "1-2",
+        Rest: "90s",
       },
       {
         exercise: "3. Lat Pulldown (Wide Grip)",
-        detail: "3 sets x 12-15 reps",
+        detail: "3 sets x 12-15",
+        RIR: "1",
+        Rest: "75s",
       },
       {
-        exercise: "4. Cable Upright Rows (Wide Grip) or Wide-Grip T-Bar Rows",
-        detail: "4 sets x 12-15 reps",
+        exercise: "4. Wide-Grip T-Bar / Seated Cable Row",
+        detail: "3 sets x 12-15",
+        RIR: "1",
+        Rest: "90s",
       },
       {
-        exercise: "5. Seated Cable Rows (Neutral Grip)",
-        detail: "4 sets x 8-12 reps",
+        exercise: "5. EZ-Bar Preacher Curl",
+        detail: "3 sets x 8-12",
+        RIR: "1",
+        Rest: "75s",
       },
       {
         exercise: "6. Hammer Curl",
-        detail: "4 sets x 10-12 reps",
-      },
-      {
-        exercise: "7. Spider Curl",
-        detail: "3 sets x 12-15 reps",
-      },
-      {
-        exercise: "Core - Cable Woodchoppers",
-        detail: "3 sets x 12-15 reps/side",
+        detail: "3 sets x 10-12",
+        RIR: "0-1",
+        Rest: "60s",
       },
     ],
   },
+
+  "Day 3": {
+    name: "Day 3: Shoulders (Full Delt Emphasis)",
+    specificWarmUp: [
+      {
+        exercise: "1. Band External Rotations",
+        detail: "2 sets x 15 reps/side",
+      },
+      {
+        exercise: "2. Scapular Push-Ups",
+        detail: "2 sets x 10 reps",
+      },
+    ],
+    mainExercises: [
+      {
+        exercise: "1. Barbell Back Squat",
+        detail: "4 sets x 6-8",
+        RIR: "1-2",
+        Rest: "2-3 min",
+      },
+      {
+        exercise: "2. Romanian Deadlift",
+        detail: "3 sets x 8-10",
+        RIR: "1-2",
+        Rest: "2-3 min",
+      },
+      {
+        exercise: "3. Hamstring Curl",
+        detail: "3 sets x 10-15",
+        RIR: "1-2",
+        Rest: "90s",
+      },
+      {
+        exercise: "4. Leg Extension",
+        detail: "2 sets x 12-15",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "5. Barbell OHP",
+        detail: "3 sets x 6-10",
+        RIR: "1-2",
+        Rest: "2-3 min",
+      },
+      {
+        exercise: "6. Cable/Machine Lateral Raise",
+        detail: "5 sets x 12-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "7. Reverse Pec Deck",
+        detail: "2 sets x 12-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "8. Seated Calf Raise",
+        detail: "3 sets x 10-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "9. Hanging Leg Raise",
+        detail: "2 sets x 10-15",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+    ],
+  },
+
   "Day 4": {
     name: "Day 4: Legs (Hypertrophy Focus)",
     specificWarmUp: [
@@ -287,32 +234,176 @@ const workoutData = {
     ],
     mainExercises: [
       {
-        exercise: "1. Barbell Back Squats",
-        detail: "4 sets x 6-8 reps (Heavy strength)",
+        exercise: "1. Incline Dumbbell Press",
+        detail: "3 sets x 8-12",
+        RIR: "1-2",
+        Rest: "90-120s",
       },
       {
-        exercise: "2. Romanian Deadlifts",
-        detail: "4 sets x 8-10 reps (Hamstrings/glutes)",
+        exercise: "2. Weighted Dips",
+        detail: "3 sets x 8-10",
+        RIR: "1-2",
+        Rest: "2 min",
       },
       {
-        exercise: "3. Leg Press",
-        detail: "4 sets x 15-20 reps (Quad hypertrophy)",
+        exercise: "3. Incline Cable Fly (Low-to-High)",
+        detail: "2 sets x 12-15 + drop",
+        RIR: "0-1",
+        Rest: "60-75s",
       },
       {
-        exercise: "4. Bulgarian Split Squats",
-        detail: "4 sets x 10-12 reps/leg",
+        exercise: "4. Standing High-to-Low Cable Fly",
+        detail: "2 sets x 12-15 + drop",
+        RIR: "0-1",
+        Rest: "60-75s",
       },
       {
-        exercise: "5. Glute-Focused Hip Thrusts",
-        detail: "3 sets x 10-12 reps",
+        exercise: "5. Overhead Tricep Extension",
+        detail: "3 sets x 12-15",
+        RIR: "1",
+        Rest: "75s",
       },
       {
-        exercise: "6. Hamstring Curls",
-        detail: "3 sets x 12-15 reps",
+        exercise: "6. Rope Pushdowns",
+        detail: "3 sets x 15-20",
+        RIR: "0-1",
+        Rest: "60s",
+      },
+    ],
+  },
+
+  "Day 5": {
+    name: "Day 5: Chest & Triceps (Upper Chest Focus)",
+    specificWarmUp: [
+      {
+        exercise: "1. Band Chest Stretch",
+        detail: "1 minute: hold a band behind your back and stretch the chest.",
       },
       {
-        exercise: "7. Standing Calf Raises",
-        detail: "4 sets x 20-25 reps",
+        exercise: "2. Incline Push-Ups",
+        detail: "2 sets x 15 reps (warm up shoulders and chest).",
+      },
+      {
+        exercise: "3. Band External Rotations",
+        detail: "2 sets x 15 reps/side",
+      },
+    ],
+    mainExercises: [
+      {
+        exercise: "1. Wide-Grip Pull-Ups",
+        detail: "3 sets x AMRAP",
+        RIR: "0",
+        Rest: "2 min",
+      },
+      {
+        exercise: "2. Deadlift",
+        detail: "3 sets x 5-7",
+        RIR: "1-2",
+        Rest: "3 min",
+      },
+      {
+        exercise: "3. Bent-Over Barbell Rows",
+        detail: "3 sets x 8-12",
+        RIR: "1-2",
+        Rest: "90-120s",
+      },
+      {
+        exercise: "4. Reverse-Grip Lat Pulldowns",
+        detail: "3 sets x 8-12",
+        RIR: "1",
+        Rest: "90s",
+      },
+      {
+        exercise: "5. Face Pulls",
+        detail: "3 sets x 15-20",
+        RIR: "0-1",
+        Rest: "60s",
+      },
+      {
+        exercise: "6. EZ-Bar Preacher Curl",
+        detail: "3 sets x 8-12",
+        RIR: "1",
+        Rest: "75s",
+      },
+      {
+        exercise: "7. Hammer Curl",
+        detail: "3 sets x 10-12",
+        RIR: "0-1",
+        Rest: "60s",
+      },
+    ],
+  },
+
+  "Day 6": {
+    name: "Day 6: Back & Biceps (Rear Delts + Thickness)",
+    specificWarmUp: [
+      {
+        exercise: "1. Lat Stretch",
+        detail: "1 minute/side: hang from a pull-up bar or doorframe.",
+      },
+      {
+        exercise: "2. Banded Face Pulls",
+        detail: "2 sets x 20 reps – added for rear delts",
+      },
+      {
+        exercise: "3. Band Rows or Empty-Bar Bent-Over Rows",
+        detail: "2 sets x 12 reps",
+      },
+    ],
+    mainExercises: [
+      {
+        exercise: "1. Bulgarian Split Squat",
+        detail: "3 sets x 8-12/leg",
+        RIR: "1-2",
+        Rest: "2 min",
+      },
+      {
+        exercise: "2. Leg Press",
+        detail: "3 sets x 10-15",
+        RIR: "1-2",
+        Rest: "2 min",
+      },
+      {
+        exercise: "3. Hip Thrust",
+        detail: "2 sets x 8-12",
+        RIR: "1-2",
+        Rest: "2 min",
+      },
+      {
+        exercise: "4. Hamstring Curl",
+        detail: "2 sets x 10-15",
+        RIR: "1-2",
+        Rest: "90s",
+      },
+      {
+        exercise: "5. Standing Calf Raise",
+        detail: "4 sets x 10-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "6. Seated DB OHP",
+        detail: "3 sets x 8-12",
+        RIR: "1-2",
+        Rest: "2 min",
+      },
+      {
+        exercise: "7. Cable Lateral Raise",
+        detail: "5 sets x 12-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "8. Reverse Pec Deck",
+        detail: "2 sets x 12-20",
+        RIR: "1-2",
+        Rest: "60-90s",
+      },
+      {
+        exercise: "9. Cable Crunch",
+        detail: "3 sets x 10-15",
+        RIR: "1-2",
+        Rest: "60-90s",
       },
     ],
   },
