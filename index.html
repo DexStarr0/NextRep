@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Animated Bottom Navigation Bar</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Roboto:wght@500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <!-- <header class="app-header">
-        <img class="Logo" src="Logo.png" alt="" />
-      </header> -->
 
-      <!-- Main Display Area -->
-      <div id="workout-display"></div>
-      <div class="fotter">
-        <div class="tabbar tab-style2">
-          <ul class="flex-center">
-            <li class="Day_1 active" data-where="Day_1" data-day="Day 1">
-              <span class="material-icons-outlined"> fitness_center </span>
-              <!-- Chest/Workout -->
-            </li>
-            <li class="Day_2" data-where="Day_2" data-day="Day 2">
-              <span class="material-icons-outlined"> accessibility_new </span>
-              <!-- Back/Strength -->
-            </li>
-            <li class="Day_3" data-where="Day_3" data-day="Day 3">
-              <span class="material-icons-outlined"> directions_run </span>
-              <!-- Legs/Cardio -->
-            </li>
-            <li class="Day_4" data-where="Day_4" data-day="Day 4">
-              <span class="material-icons-outlined"> self_improvement </span>
-              <!-- Shoulders/Core -->
-            </li>
-            <li class="Day_5" data-where="Day_5" data-day="Day 5">
-              <span class="material-icons-outlined"> emoji_people </span>
-              <!-- Arms/Triceps -->
-            </li>
-            <li class="Day_6" data-where="Day_6" data-day="Day 6">
-              <span class="material-icons-outlined"> hiking </span>
-              <!-- Abs/Recovery -->
-            </li>
-          </ul>
-        </div>
+<head>
+  <title>NextRep — Workout Tracker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>NextRep</h1>
+      <p class="app-tagline">Progress at your pace, not the calendar's</p>
+    </header>
+
+    <!-- Main Display Area -->
+    <div id="workout-display"></div>
+    <div class="fotter">
+      <div class="tabbar tab-style2">
+        <ul class="flex-center">
+          <li class="Day_1 active" data-where="Day_1" data-day="Day 1">
+            <span class="material-icons-outlined"> fitness_center </span>
+            <!-- Chest/Workout -->
+          </li>
+          <li class="Day_2" data-where="Day_2" data-day="Day 2">
+            <span class="material-icons-outlined"> accessibility_new </span>
+            <!-- Back/Strength -->
+          </li>
+          <li class="Day_3" data-where="Day_3" data-day="Day 3">
+            <span class="material-icons-outlined"> directions_run </span>
+            <!-- Legs/Cardio -->
+          </li>
+          <li class="Day_4" data-where="Day_4" data-day="Day 4">
+            <span class="material-icons-outlined"> self_improvement </span>
+            <!-- Shoulders/Core -->
+          </li>
+          <li class="Day_5" data-where="Day_5" data-day="Day 5">
+            <span class="material-icons-outlined"> emoji_people </span>
+            <!-- Arms/Triceps -->
+          </li>
+          <li class="Day_6" data-where="Day_6" data-day="Day 6">
+            <span class="material-icons-outlined"> hiking </span>
+            <!-- Abs/Recovery -->
+          </li>
+        </ul>
       </div>
     </div>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/workoutSplit.js"></script>
-  </body>
+  </div>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/workoutSplit.js"></script>
+</body>
+
 </html>
