@@ -88,6 +88,7 @@ function setClass(node, className) {
 const stripLeadingNumber = (str) => str.replace(/^\d+\.\s*/, "");
 
 // Create a card for an exercise, with RIR/Rest shown as badges when present
+// Create a card for an exercise, with RIR/Rest shown as badges when present
 const createExerciseCard = (exercise, index) => {
   const badges = [];
   if (exercise.RIR) {
@@ -98,19 +99,42 @@ const createExerciseCard = (exercise, index) => {
       `<span class="badge badge-rest"><span class="material-icons-outlined">schedule</span>${exercise.Rest}</span>`
     );
   }
+  const targetPanel = exercise.targetMuscle
+    ? `
+      <div class="exercise-target-panel">
+        <div class="exercise-target-inner">
+          <span class="material-icons-outlined">accessibility_new</span>
+          <span>${exercise.targetMuscle}</span>
+        </div>
+      </div>`
+    : "";
   return `
     <div class="exercise-card">
-      <div class="exercise-card-main">
-        <span class="exercise-index">${index + 1}</span>
-        <div class="exercise-info">
-          <div class="exercise-name">${stripLeadingNumber(exercise.exercise)}</div>
-          <div class="exercise-detail">${exercise.detail}</div>
+      <div class="exercise-card-row" onclick="toggleExerciseDetail(this)">
+        <div class="exercise-card-main">
+          <span class="exercise-index">${index + 1}</span>
+          <div class="exercise-info">
+            <div class="exercise-name">${stripLeadingNumber(exercise.exercise)}</div>
+            <div class="exercise-detail">${exercise.detail}</div>
+          </div>
         </div>
+        ${badges.length ? `<div class="exercise-badges">${badges.join("")}</div>` : ""}
       </div>
-      ${badges.length ? `<div class="exercise-badges">${badges.join("")}</div>` : ""}
+      ${targetPanel}
     </div>
   `;
 };
+
+// Slide the target-muscle panel open/closed when a row is tapped
+function toggleExerciseDetail(rowEl) {
+  const card = rowEl.closest(".exercise-card");
+  const panel = card.querySelector(".exercise-target-panel");
+  if (!panel) return;
+
+  const isExpanded = card.classList.contains("expanded");
+  card.classList.toggle("expanded", !isExpanded);
+  panel.style.maxHeight = !isExpanded ? panel.scrollHeight + "px" : null;
+}
 
 // Render general warm-up
 function renderGeneral() {

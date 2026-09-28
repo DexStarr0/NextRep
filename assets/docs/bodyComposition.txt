@@ -1,0 +1,27 @@
+Body Composition Data
+ID: —
+Height: 181.0 cm
+Age: 26 years
+Gender: Male
+Weight: 79.6 kg
+Skeletal Muscle Mass (SMM): 34.7 kg
+Fat Mass: 17.7 kg
+Percentage of Body Fat: 22.2%
+BMI: 24.3 kg/m²
+Waist-to-Hip Ratio: 0.84
+Body Type: Over Fat
+Basal Metabolic Rate: 1,708 kcal
+Total Body Water (TBW): 45.2 L
+Extracellular Water (ECW): 17.6 L
+Intracellular Water (ICW): 27.6 L
+ECW Ratio: 0.389
+Target Weight: 75.1 kg
+Fat Control: −4.5 kg
+Muscle Control: +0.0 kg
+Impedance: 445 Ω
+Segmental Muscle Mass
+Left Arm: 3.89 kg
+Right Arm: 3.81 kg
+Trunk: 26.07 kg
+Left Leg: 10.07 kg
+Right Leg: 9.40 kg

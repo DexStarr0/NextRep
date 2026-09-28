@@ -317,23 +317,55 @@ body {
 }
 
 /* Exercise Cards */
-.exercise-list {
+.exercise-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 14px;
+  background: var(--table-row-alt);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-.exercise-card {
+.exercise-card:hover {
+  border-color: rgba(42, 157, 143, 0.18);
+}
+
+.exercise-card-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: var(--table-row-alt);
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
   padding: 12px 14px;
+  cursor: pointer;
   transition: var(--transition);
+}
+
+.exercise-card-row:hover {
+  background: rgba(42, 157, 143, 0.06);
+}
+
+.exercise-target-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(42, 157, 143, 0.12);
+  transition: max-height 0.3s ease;
+}
+
+.exercise-target-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 12px 52px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.exercise-target-inner .material-icons-outlined {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
 }
 
 .exercise-card:hover {
@@ -383,9 +415,9 @@ body {
 
 .exercise-badges {
   display: flex;
+  flex-direction: column;
   gap: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  align-items: flex-end;
   flex-shrink: 0;
 }
 
