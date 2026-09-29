@@ -87,18 +87,53 @@ function setClass(node, className) {
 // Strip a leading "1. " style number from an exercise name (index badge replaces it)
 const stripLeadingNumber = (str) => str.replace(/^\d+\.\s*/, "");
 
-// Create a card for an exercise, with RIR/Rest shown as badges when present
-// Create a card for an exercise, with RIR/Rest shown as badges when present
-const createExerciseCard = (exercise, index) => {
-  const badges = [];
+// Split "1–2 RIR (drop to 0–1 RIR)" into a main value and an optional drop-set value
+function parseRir(raw) {
+  const m = raw.match(/^(.*?)\s*\((.*)\)\s*$/);
+  const main = (m ? m[1] : raw).trim();
+  const note = m ? m[2] : "";
+  const isAmrap = /AMRAP/i.test(main);
+  const drop = /^drop to /i.test(note) ? note.replace(/^drop to /i, "") : "";
+  return {
+    label: isAmrap ? "" : "RIR",
+    value: isAmrap ? "To failure" : main.replace(/\s*RIR/i, ""),
+    drop,
+  };
+}
+
+// Split "60–90 sec; drop set no rest" into the main rest and whether a no-rest drop follows
+function parseRest(raw) {
+  const [main, extra] = raw.split(";").map((t) => t.trim());
+  return { main, noRestDrop: !!extra };
+}
+
+// Build the compact meta row (RIR · Rest, plus a drop-set line when relevant)
+function renderMeta(exercise) {
+  const items = [];
+  let dropLine = "";
   if (exercise.RIR) {
-    badges.push(`<span class="badge badge-rir">RIR ${exercise.RIR}</span>`);
+    const r = parseRir(exercise.RIR);
+    items.push(
+      `<span class="meta-item meta-rir"><i class="bi bi-lightning-charge-fill"></i>${r.label ? `<span class="meta-label">${r.label}</span>` : ""}<strong>${r.value}</strong></span>`
+    );
+    if (r.drop) dropLine = `Drop set to ${r.drop} RIR`;
   }
   if (exercise.Rest) {
-    badges.push(
-      `<span class="badge badge-rest"><span class="material-icons-outlined">schedule</span>${exercise.Rest}</span>`
+    const t = parseRest(exercise.Rest);
+    items.push(
+      `<span class="meta-item meta-rest"><i class="bi bi-clock-fill"></i><span class="meta-label">Rest</span><strong>${t.main}</strong></span>`
     );
+    if (dropLine && t.noRestDrop) dropLine += ", no rest";
   }
+  if (!items.length) return "";
+  return `
+    <div class="exercise-meta">${items.join('<span class="meta-sep"></span>')}</div>
+    ${dropLine ? `<div class="exercise-drop"><i class="bi bi-arrow-return-right"></i>${dropLine}</div>` : ""}
+  `;
+}
+
+// Create a card for an exercise
+const createExerciseCard = (exercise, index) => {
   const targetPanel = exercise.targetMuscle
     ? `
       <div class="exercise-target-panel">
@@ -116,9 +151,9 @@ const createExerciseCard = (exercise, index) => {
           <div class="exercise-info">
             <div class="exercise-name">${stripLeadingNumber(exercise.exercise)}</div>
             <div class="exercise-detail">${exercise.detail}</div>
+            ${renderMeta(exercise)}
           </div>
         </div>
-        ${badges.length ? `<div class="exercise-badges">${badges.join("")}</div>` : ""}
       </div>
       ${targetPanel}
     </div>
@@ -140,7 +175,7 @@ function toggleExerciseDetail(rowEl) {
 function renderGeneral() {
   return `
     <h2>General Warm-Up</h2>
-    <div class="exercise-list">${globalDailyWarmUp.map(createExerciseCard).join("")}</div>
+    <div class="exercise-list">${generalWarmUp.map(createExerciseCard).join("")}</div>
   `;
 }
 
