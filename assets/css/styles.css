@@ -53,7 +53,7 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 120px;
+  padding-bottom: 130px;
 }
 
 /* Header */
@@ -317,6 +317,13 @@ body {
 }
 
 /* Exercise Cards */
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+}
+
 .exercise-card {
   display: flex;
   flex-direction: column;
@@ -327,8 +334,18 @@ body {
   transition: var(--transition);
 }
 
-.exercise-card:hover {
-  border-color: rgba(42, 157, 143, 0.18);
+@media (hover: hover) {
+  .exercise-card:hover {
+    border-color: rgba(42, 157, 143, 0.25);
+  }
+
+  .exercise-card-row:hover {
+    background: rgba(42, 157, 143, 0.06);
+  }
+}
+
+.exercise-card.expanded {
+  border-color: rgba(42, 157, 143, 0.3);
 }
 
 .exercise-card-row {
@@ -339,10 +356,7 @@ body {
   padding: 12px 14px;
   cursor: pointer;
   transition: var(--transition);
-}
-
-.exercise-card-row:hover {
-  background: rgba(42, 157, 143, 0.06);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .exercise-target-panel {
@@ -368,11 +382,6 @@ body {
   color: var(--primary-color);
 }
 
-.exercise-card:hover {
-  background: rgba(42, 157, 143, 0.06);
-  border-color: rgba(42, 157, 143, 0.18);
-  transform: translateY(-1px);
-}
 
 .exercise-card-main {
   display: flex;
@@ -398,6 +407,7 @@ body {
 
 .exercise-info {
   min-width: 0;
+  flex: 1;
 }
 
 .exercise-name {
@@ -413,37 +423,58 @@ body {
   margin-top: 2px;
 }
 
-.exercise-badges {
+.exercise-meta {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: flex-end;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: #55606a;
 }
 
-.badge {
-  display: flex;
+.meta-item {
+  display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 4px 9px;
-  border-radius: 12px;
+  gap: 5px;
   white-space: nowrap;
 }
 
-.badge-rir {
-  background: rgba(255, 152, 0, 0.14);
-  color: #b26a00;
+.meta-item i {
+  font-size: 0.8rem;
 }
 
-.badge-rest {
-  background: rgba(31, 168, 245, 0.14);
-  color: #0b6fa8;
+.meta-rir i {
+  color: var(--warning-color);
 }
 
-.badge-rest .material-icons-outlined {
-  font-size: 0.85rem;
+.meta-rest i {
+  color: var(--accent-color);
+}
+
+.meta-label {
+  color: #8a949c;
+  font-weight: 500;
+}
+
+.meta-item strong {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.meta-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--border-color);
+}
+
+.exercise-drop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  font-size: 0.72rem;
+  color: #8a949c;
 }
 
 /* Footer */
@@ -638,10 +669,11 @@ body {
 
   .exercise-list {
     padding: 10px;
+    gap: 8px;
   }
 
-  .exercise-card {
-    padding: 10px 12px;
+  .exercise-card-row {
+    padding: 12px;
   }
 
   .tabbar {
@@ -678,18 +710,6 @@ body {
   .tab-button {
     padding: 10px 12px;
     font-size: 0.85rem;
-  }
-
-  .exercise-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 12px;
-  }
-
-  .exercise-badges {
-    justify-content: flex-start;
-    padding-left: 38px;
   }
 
   .tabbar {
