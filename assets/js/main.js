@@ -88,11 +88,11 @@ function setClass(node, className) {
 const stripLeadingNumber = (str) => str.replace(/^\d+\.\s*/, "");
 
 // Create a card for an exercise, with RIR/Rest shown as badges when present
-// Create a card for an exercise, with RIR/Rest shown as badges when present
 const createExerciseCard = (exercise, index) => {
   const badges = [];
   if (exercise.RIR) {
-    badges.push(`<span class="badge badge-rir">RIR ${exercise.RIR}</span>`);
+    // Data already says "2–3 RIR", so show it as-is instead of "RIR 2–3 RIR"
+    badges.push(`<span class="badge badge-rir">${exercise.RIR}</span>`);
   }
   if (exercise.Rest) {
     badges.push(
@@ -140,7 +140,7 @@ function toggleExerciseDetail(rowEl) {
 function renderGeneral() {
   return `
     <h2>General Warm-Up</h2>
-    <div class="exercise-list">${globalDailyWarmUp.map(createExerciseCard).join("")}</div>
+    <div class="exercise-list">${generalWarmUp.map(createExerciseCard).join("")}</div>
   `;
 }
 
