@@ -255,7 +255,31 @@ function showSection(section) {
   });
 }
 
-// Load the user's saved workout progress (completion-based, not date-based)
-document.addEventListener("DOMContentLoaded", () => {
+const DATA_URL =
+  "https://gist.githubusercontent.com/DexStarr0/c9aaec437d08d7ff992fca2d27c36f8c/raw/workoutSplit.json";
+const DATA_CACHE_KEY = "workoutTracker.data";
+let workoutData = {};
+
+async function loadWorkoutData() {
+  try {
+    const res = await fetch(DATA_URL, { cache: "no-cache" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    workoutData = await res.json();
+    localStorage.setItem(DATA_CACHE_KEY, JSON.stringify(workoutData));
+  } catch (err) {
+  console.error("Workout data load failed:", err);
+  const cached = localStorage.getItem(DATA_CACHE_KEY);
+  if (cached) {
+    workoutData = JSON.parse(cached);
+  } else {
+    document.getElementById("workout-display").innerHTML =
+      `<p style="padding:20px">Couldn't load workout data.<br><small>${err.message}</small></p>`;
+    throw err;
+  }
+}
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadWorkoutData();
   showSection(getCurrentDay());
 });
